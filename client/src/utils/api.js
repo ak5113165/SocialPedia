@@ -1,6 +1,9 @@
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:3001";
+  process.env.REACT_APP_API_BASE_URL || "https://socialpedia-qg5q.onrender.com";
 
-export const getApiUrl = (path) => `${API_BASE_URL}${path}`;
+const normalizeBaseUrl = (url) => url.replace(/\/+$/, "");
+const BASE_URL = normalizeBaseUrl(API_BASE_URL);
 
-export const getAssetUrl = (path) => `${API_BASE_URL}/assets/${path}`;
+export const getApiUrl = (path) => `${BASE_URL}${path}`;
+
+export const getAssetUrl = (path) => `${BASE_URL}/assets/${path}`;
